@@ -14,6 +14,14 @@
       tab-width 8
       indent-tabs-mode t)
 
+(setq-default indent-tabs-mode t)
+
+(require 'whitespace)
+(setq whitespace-style '(face empty lines-tail trailing))
+(global-whitespace-mode t)
+
+(setq column-number-mode t)
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
@@ -79,3 +87,40 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(setq projectile-project-search-path '("~/Development/projects/"))
+
+(setq wakatime-cli-path "/usr/bin/wakatime")
+
+(setq elfeed-feeds (quote
+                    (("https://www.reddit.com/r/linux.rss" reddit linux)
+                     ("https://www.reddit.com/r/commandline.rss" reddit commandline)
+                     ("https://www.reddit.com/r/distrotube.rss" reddit distrotube)
+                     ("https://www.reddit.com/r/emacs.rss" reddit emacs)
+                     ("https://www.gamingonlinux.com/article_rss.php" gaming linux)
+                     ("https://hackaday.com/blog/feed/" hackaday linux)
+                     ("https://opensource.com/feed" opensource linux)
+                     ("https://linux.softpedia.com/backend.xml" softpedia linux)
+                     ("https://itsfoss.com/feed/" itsfoss linux)
+                     ("https://www.zdnet.com/topic/linux/rss.xml" zdnet linux)
+                     ("https://www.phoronix.com/rss.php" phoronix linux)
+                     ("http://feeds.feedburner.com/d0od" omgubuntu linux)
+                     ("https://www.computerworld.com/index.rss" computerworld linux)
+                     ("https://www.networkworld.com/category/linux/index.rss" networkworld linux)
+                     ("https://www.techrepublic.com/rssfeeds/topic/open-source/" techrepublic linux)
+                     ("https://betanews.com/feed" betanews linux)
+                     ("http://lxer.com/module/newswire/headlines.rss" lxer linux)
+                     ("https://distrowatch.com/news/dwd.xml" distrowatch linux))))
+
+(use-package wakatime-mode
+  :ensure t)
+
+;; enable word-wrap (almost) everywhere
+;; (+global-word-wrap-mode +1)
+
+;(use-package catppuccin-theme
+; :config
+; (setq catppuccin-height-title1 1.5))
+
+; (load-theme catppuccin-theme)
+
+(global-wakatime-mode)

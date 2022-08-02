@@ -1,0 +1,44 @@
+# Aliases for emacs commands
+alias ff find-file $1
+
+# Changing "ls" to "exa"
+alias ls exa -al --color=always --group-directories-first $*  # my preferred listing
+alias la exa -a --color=always --group-directories-first $*   # all files and dirs
+alias ll exa -l --color=always --group-directories-first $*   # long format
+alias lt exa -aT --color=always --group-directories-first $*  # tree listing
+alias l. exa -a1 $* | grep "^\."                              # list hidden files
+
+# Merge Xresources
+alias merge xrdb -merge ~/.Xresources
+
+# Aliases for doom emacs utilties
+alias doomsync ~/.emacs.d/bin/doom sync
+alias doomdoctor ~/.emacs.d/bin/doom doctor
+alias doomupgrade ~/.emacs.d/bin/doom upgrade
+alias doompurge ~/.emacs.d/bin/doom purge
+
+# Confirm before overwriting something
+alias cp cp -i $1
+alias mv mv -i $1
+alias rm rm -i $1
+
+# git
+alias addup git add -u
+alias addall git add .
+alias branch git branch
+alias checkout git checkout
+alias clone git clone
+alias commit git commit -S -m
+alias fetch git fetch
+alias pull git pull origin
+alias push git push origin
+alias stat git status
+alias tag git tag
+alias newtag git tag -a
+
+alias gcs gcc -Wall -pedantic -Werror -Wextra -std=gnu89
+
+alias cls clear
+
+# bare git repo alias for dotfiles
+alias config /usr/bin/git --git-dir=$HOME/Development/projects/MubarekSD/dotfiles --work-tree=$HOME $*

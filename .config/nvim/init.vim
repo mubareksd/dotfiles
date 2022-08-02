@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'scrooloose/nerdtree'
 	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'ryanoasis/vim-devicons'
+	Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 set tabstop=8 shiftwidth=8

@@ -80,4 +80,5 @@
 (package! clippy)
 (package! minimap)
 (package! olivetti)
-
+(package! wakatime-mode)
+(package! catppuccin-theme)
