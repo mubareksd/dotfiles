@@ -1,11 +1,3 @@
-#  ____ _____
-# |  _ \_   _|  Derek Taylor (DistroTube)
-# | | | || |    http://www.youtube.com/c/DistroTube
-# | |_| || |    http://www.gitlab.com/dwt1/
-# |____/ |_|
-#
-# My bash config. Not much to see here; just some pretty standard stuff.
-
 ### EXPORT
 export TERM="xterm-256color"                      # getting proper colors
 export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
@@ -240,6 +232,12 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
 # bare git repo alias for dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/Development/projects/mubareksd/dotfiles --work-tree=$HOME"
+alias config_commit='config commit -S -m'
+alias config_pull='config pull origin'
+alias config_push='config push origin gitlab'
+alias config_checkout='config checkout'
+alias config_branch='config branch'
+alias config_stat='config status'
 
 # termbin
 alias tb="nc termbin.com 9999"
@@ -250,21 +248,11 @@ alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/mas
 # Unlock LBRY tips
 alias tips='lbrynet txo spend --type=support --is_not_my_input --blocking'
 
-### DTOS ###
-# Copy/paste all content of /etc/dtos over to home folder. A backup of config is created. (Be careful running this!)
-alias dtoscopy='[ -d ~/.config ] || mkdir ~/.config && cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -rf /etc/dtos/* ~'
-# Backup contents of /etc/dtos to a backup folder in $HOME.
-alias dtosbackup='cp -Rf /etc/dtos ~/dtos-backup-$(date +%Y.%m.%d-%H.%M.%S)'
-
+# gcc c89
 alias gcs='gcc -Wall -pedantic -Werror -Wextra -std=gnu89'
 
 alias cls='clear'
 alias sub='git submodule update --init --recursive && git submodule update --remote --merge'
-
-### RANDOM COLOR SCRIPT ###
-# Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
-# Or install it from the Arch User Repository: shell-color-scripts
-# colorscript random
 
 ### BASH INSULTER ###
 if [ -f /etc/bash.command-not-found ]; then
