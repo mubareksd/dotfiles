@@ -1,0 +1,3 @@
+#+TITLE: Doom Emacs config
+#+AUTHOR: Mubarek Seid (MSD)
+#+DESCRIPTION: MSD's personal Doom Emacs Config.

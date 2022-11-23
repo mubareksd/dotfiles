@@ -9,19 +9,6 @@
 (setq user-full-name "Mubarek Seid"
       user-mail-address "mubareksd@gmail.com")
 
-(setq c-default-style "bsd"
-      c-basic-offset 8
-      tab-width 8
-      indent-tabs-mode t)
-
-(setq-default indent-tabs-mode t)
-
-(require 'whitespace)
-(setq whitespace-style '(face empty lines-tail trailing))
-(global-whitespace-mode t)
-
-(setq column-number-mode t)
-
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
@@ -45,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-nord)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -87,40 +74,28 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-(setq projectile-project-search-path '("~/Development/projects/"))
-
-(setq wakatime-cli-path "/usr/bin/wakatime")
-
-(setq elfeed-feeds (quote
-                    (("https://www.reddit.com/r/linux.rss" reddit linux)
-                     ("https://www.reddit.com/r/commandline.rss" reddit commandline)
-                     ("https://www.reddit.com/r/distrotube.rss" reddit distrotube)
-                     ("https://www.reddit.com/r/emacs.rss" reddit emacs)
-                     ("https://www.gamingonlinux.com/article_rss.php" gaming linux)
-                     ("https://hackaday.com/blog/feed/" hackaday linux)
-                     ("https://opensource.com/feed" opensource linux)
-                     ("https://linux.softpedia.com/backend.xml" softpedia linux)
-                     ("https://itsfoss.com/feed/" itsfoss linux)
-                     ("https://www.zdnet.com/topic/linux/rss.xml" zdnet linux)
-                     ("https://www.phoronix.com/rss.php" phoronix linux)
-                     ("http://feeds.feedburner.com/d0od" omgubuntu linux)
-                     ("https://www.computerworld.com/index.rss" computerworld linux)
-                     ("https://www.networkworld.com/category/linux/index.rss" networkworld linux)
-                     ("https://www.techrepublic.com/rssfeeds/topic/open-source/" techrepublic linux)
-                     ("https://betanews.com/feed" betanews linux)
-                     ("http://lxer.com/module/newswire/headlines.rss" lxer linux)
-                     ("https://distrowatch.com/news/dwd.xml" distrowatch linux))))
+(use-package org-auto-tangle
+  :load-path "site-lisp/org-auto-tangle/"    ;; this line is necessary only if you cloned the repo in your site-lisp directory
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode))
 
 (use-package wakatime-mode
   :ensure t)
-
-;; enable word-wrap (almost) everywhere
-;; (+global-word-wrap-mode +1)
-
-;(use-package catppuccin-theme
-; :config
-; (setq catppuccin-height-title1 1.5))
-
-; (load-theme catppuccin-theme)
-
 (global-wakatime-mode)
+(use-package lsp-dart
+  :ensure t
+  :hook (dart-mode . lsp))
+
+(use-package autothemer
+  :ensure t)
+
+(load-theme 'catppuccin-macchiato t)
+
+(setq c-default-style "bsd"
+      c-basic-offset 8
+      tab-width 8
+      indent-tabs-mode t)
+
+(require 'whitespace)
+(setq whitespace-style '(face empty lines-tail trailing))
+(global-whitespace-mode t)
